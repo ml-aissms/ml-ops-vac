@@ -1,5 +1,5 @@
-#pandas
-#numpy
-#mlflow
-#scikit-learn
+pandas
+numpy
+mlflow
+scikit-learn
 psycopg2
