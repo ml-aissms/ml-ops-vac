@@ -45,3 +45,5 @@ For example:
 =============================================================================
 
 -   Copy the aiml folder to the main folder
+
+-   Data collection -> Data pre-processing -> Data Splitting -> Model Selection
