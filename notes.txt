@@ -1,0 +1,47 @@
+Date : 6/2/25
+
+-   Airflow is the pipeline where you can process data from multiple data sources like RDBMS, NoSQL
+    it is mlops ci/cd pipeline
+
+-   Learning models do not allow multiple data sources to be accessed at one time so we require this platforms
+
+-   Apache Airflow is used for the scheduling and orchestration of data pipelines or workflows. Orchestration of data pipelines referes to the
+    sequencing, coordination, scheduling and managing of comples data pipelines from diverse sources.
+
+-   pip install cookiecutter
+
+-   creating a cookiecutter aiml template
+    (venv) PS C:\Users\Ashutosh\OneDrive\Desktop\mlops-vac> cookiecutter https://github.com/drivendataorg/cookiecutter-data-science -c v1
+  [1/8] project_name (project_name): aiml
+  [2/8] repo_name (aiml): aiml
+  [3/8] author_name (Your name (or your organization/company/team)): aissms
+  [4/8] description (A short description of the project.): This is related to mlops
+  [5/8] Select open_source_license
+    1 - MIT
+    2 - BSD-3-Clause
+    3 - No license file
+    Choose from [1/2/3] (1): 1
+  [6/8] s3_bucket ([OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')): 
+  [7/8] aws_profile (default):
+  [8/8] Select python_interpreter
+    1 - python3
+    2 - python
+    Choose from [1/2] (1): 1
+
+
+=============================================================================
+*** DEPRECATION WARNING ***
+
+Cookiecutter data science is moving to v2 soon, which will entail using
+the command `ccds ...` rather than `cookiecutter ...`. The cookiecutter command
+will continue to work, and this version of the template will still be available.
+To use the legacy template, you will need to explicitly use `-c v1` to select it.
+
+Please update any scripts/automation you have to append the `-c v1` option,
+which is available now.
+
+For example:
+    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
+=============================================================================
+
+-   Copy the aiml folder to the main folder
