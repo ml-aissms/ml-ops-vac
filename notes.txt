@@ -57,3 +57,14 @@ Date : 7/2/25
 - Splitting of data : train and test,
   train : feature train data, target train data
   test : feature test data, target test data
+
+- mlflow congif cmd : mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 127.0.0.1 -p 5000
+                ui  : mlflow ui
+
+- mlflow : An open platform to simplify the machine learning lifecycle
+
+- MLflow components : Tracking, Projects, Models, Registry
+  Tracking : record and query experiments
+  Projects : package data science code in a format to reproduce runs on any platform
+  Models : deploy ml models in diversing serving environments
+  Registry : store, annotate, discover, manage models in a central repo.
