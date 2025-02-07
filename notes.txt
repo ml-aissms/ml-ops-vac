@@ -68,3 +68,7 @@ Date : 7/2/25
   Projects : package data science code in a format to reproduce runs on any platform
   Models : deploy ml models in diversing serving environments
   Registry : store, annotate, discover, manage models in a central repo.
+
+- Django : A framework based on MVT(Model View template) design pattern
+
+- csrf_token : Gives security whenever the page is loaded

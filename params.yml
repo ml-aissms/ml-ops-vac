@@ -19,6 +19,10 @@ estimators:
     params:
       n_estimators: 50
       min_samples_split: 2
+  ElasticNet:
+    params:
+      alpha: 1.0
+      l1_ratio: 0.5
 
 model_path: models/model.joblib
 
