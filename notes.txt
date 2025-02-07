@@ -47,3 +47,13 @@ For example:
 -   Copy the aiml folder to the main folder
 
 -   Data collection -> Data pre-processing -> Data Splitting -> Model Selection
+
+*******************************************************************************************************************************************
+
+Date : 7/2/25
+
+- Orchestration : The process of automatically organizing and combining data from different storage locations to make it ready for analysis
+
+- Splitting of data : train and test,
+  train : feature train data, target train data
+  test : feature test data, target test data
