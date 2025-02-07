@@ -72,3 +72,11 @@ Date : 7/2/25
 - Django : A framework based on MVT(Model View template) design pattern
 
 - csrf_token : Gives security whenever the page is loaded
+
+- django-admin startproject firstApp          ## Start a project   
+- django-admin startapp firstApp              ## Start a app
+- python manage.py sqlmigrate firstApp 0001   ## Connect through the migrations made to the data base
+- python manage.py makemigrations             ## Creates migrations 
+- python mmanage.py migrate                   ## An authentication command to connect admin and database to the project
+- python manage.py runserver                  ## Run the django server
+
