@@ -59,7 +59,7 @@ def train_and_eval(config_path):
         scores = {
             "rmse":rmse,
             "mae":mae,
-            "re":r2
+            "r2":r2
         }
         json.dump(scores,f)
     
