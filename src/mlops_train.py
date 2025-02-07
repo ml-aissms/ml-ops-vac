@@ -5,7 +5,7 @@ import numpy as np
 from pkgutil import get_data
 from get_data import get_data, read_param
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import ElasticNet
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import joblib
 import json
@@ -30,8 +30,8 @@ def train_and_eval(config_path):
     df = pd.read_csv(raw_data_path,sep=",",encoding="utf-8")
     
 
-    alpha = config["estimator"]["ElasticNet"]["params"]["alpha"]
-    l1_ratio = config["estimator"]["ElasticNet"]["params"]["l1_ratio"]
+    n_estimators = config["estimators"]["RandomForestRegressor"]["params"]["n_estimators"]
+    min_samples_split = config["estimators"]["RandomForestRegressor"]["params"]["min_samples_split"]
 
     target = config["base"]["target_col"]
     train_data = pd.read_csv(train_data_path)
@@ -52,15 +52,15 @@ def train_and_eval(config_path):
     mlflow.set_experiment(mlflow_config["experiment_name"])
 
     with mlflow.start_run(run_name=mlflow_config["run_name"]) as mlops_run:
-        lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=random_state)
-        lr.fit(train_x,train_y)
+        lr = RandomForestRegressor(n_estimators=n_estimators,min_samples_split=min_samples_split, random_state= random_state)
+        lr.fit(train_x, train_y)
 
         predicted_qualities = lr.predict(test_x)
 
         (rmse, mae, r2) = eval_metrics(test_y, predicted_qualities)
 
-        mlflow.log_param("alpha", alpha)
-        mlflow.log_param("l1_ratio", l1_ratio)
+        mlflow.log_param("n_estimators", n_estimators)
+        mlflow.log_param("min_samples_split",min_samples_split)
 
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
