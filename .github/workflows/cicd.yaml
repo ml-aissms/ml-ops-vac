@@ -28,7 +28,7 @@ jobs:
           DOCKER_CLI_ACI: 1
 
         run: |
-          docker-compose -f Docker-compose.yaml build
+          docker compose -f Docker-compose.yaml build
           docker tag mlops_project_app:latest ashutoshk12/mlops_project_app:latest
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker push ashutoshk12/mlops_project_app:latest
