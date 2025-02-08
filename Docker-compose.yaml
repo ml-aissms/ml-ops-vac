@@ -29,4 +29,4 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.command
       - PGADMIN_DEFAULT_PASSWORD=1234
     ports:
-      - 5432:8000
+      - 5432:5432
