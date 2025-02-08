@@ -73,10 +73,55 @@ Date : 7/2/25
 
 - csrf_token : Gives security whenever the page is loaded
 
+//Commands to start and execute a django app and database connection
+
 - django-admin startproject firstApp          ## Start a project   
 - django-admin startapp firstApp              ## Start a app
 - python manage.py sqlmigrate firstApp 0001   ## Connect through the migrations made to the data base
 - python manage.py makemigrations             ## Creates migrations 
-- python mmanage.py migrate                   ## An authentication command to connect admin and database to the project
+- python manage.py migrate                    ## An authentication command to connect admin and database to the project
 - python manage.py runserver                  ## Run the django server
 
+
+**********************************************************************************************************************************************
+
+Date : 8/2/25
+
+- Docker : code-buid-ship-run
+
+- Docker : It is a container management system/service
+  To easily develop applications, ship them into containers which can then be deployed anywhere
+
+- Docker client : build, pull, run
+- Docker Host : Docker daemon -> containers, images
+- Docker Registry
+
+- Docker image : A combination of a file system and parameters
+  docker run hello-world                  ##command to print hello-world
+  sudo docker run -it centos /bin/bash    ##Command for centos
+  docker images                           ##See list of docker images on the system
+
+- Docker networking : Allows to create a network of docker containers managed by a master node called the manager.
+  sudo docker network
+  sudo docker network ls
+
+- Types of networking
+  1. Bridge
+  2. None
+  3. Host
+
+- Docker security best practices:
+  Keep the host system and Docker software update
+  Use official, Verified docker image from trusted sources
+  Run containers as Non-Root Users - docker run -user 1000 mycontainer
+  Limit the number of open ports on a container - docker run -p 80:80 myimage
+  Use encryted environment variables and docker secrets
+  Monitor the host and container logs : docker logs<container_name_or_id>
+  Use network segementation and firewalls:
+  Enable security features
+
+- Commands:
+  docker login
+  docker build -t mlops-vac:1.0 .
+  docker run -p 8000:8000 mlops-vac:1.0
+  docker-compose up --build
