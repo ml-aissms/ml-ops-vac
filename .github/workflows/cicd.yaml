@@ -1,5 +1,4 @@
-name: Build and Analyze Scan
-
+name: Build, Analyze, Scan
 on:
   push:
     branches:
@@ -7,10 +6,10 @@ on:
 
 jobs:
   build_analyze_scan:
-    name: Buid
-    runs-on: ubuntu-latest  #[self-hosted]
+    name: Build
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Set up Python 3.11
@@ -23,19 +22,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-          - name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v2
-  
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-  
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
           push: true
           tags: ashutoshk12/webapp:latest
-        
