@@ -23,13 +23,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Docker Buid and Push
-        env:
-          DOCKER_CLI_ACI: 1
-
-        run: |
-          docker compose -f Docker-compose.yaml build
-          docker tag mlops_project_app:latest ashutoshk12/mlops_project_app:latest
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push ashutoshk12/mlops_project_app:latest
+          - name: Set up Docker Buildx
+          uses: docker/setup-buildx-action@v2
+  
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+  
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ashutoshk12/webapp:latest
         
