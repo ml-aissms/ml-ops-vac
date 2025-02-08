@@ -1,3 +1,5 @@
+name: Build and Analyze Scan
+
 on:
   push:
     branches:
@@ -21,3 +23,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Docker Buid and Push
+        env:
+          DOCKER_CLI_ACI: 1
+
+        run: |
+          docker-compose -f docker-compose.yml build
+          docker tag mlops_project_app:latest ashutoshk12/mlops_project_app:latest
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker push ashutoshk12/mlops_project_app:latest
+        

@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'mlops',
         'USER': 'postgres',
         'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
